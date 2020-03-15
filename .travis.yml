@@ -1,0 +1,36 @@
+matrix:
+  include:
+    - language: python
+      python: 3.8.1
+      cache: pip
+      install: pip install -r requirments.txt
+      before_script:
+        #- cd ODML-Management-Back-end
+        - export FLASK_APP="$TRAVIS_BUILD_DIR/ODML-Management-Back-end/main.py"
+      # script:
+      #   - python -m unittest discover
+
+    - language: node_js
+      node_js:
+        - "stable"
+      cache:
+        directories:
+          - node_modules
+      script:
+        - npm test
+        - npm run test:coverage
+        - npm run build
+
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $github_token
+        local_dir: build
+        on:
+          branch: master
+    
+         
+
+notifications:
+  email:
+    - snehasridhar115@gmail.com

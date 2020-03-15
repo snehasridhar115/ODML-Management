@@ -1,5 +1,4 @@
-import MySQLdb
-from datetime import *
+import mysql.connector as MySQLdb
 class EVENTS:
     def __init__(self):
         self.host = '127.0.0.1'                
@@ -33,8 +32,9 @@ class EVENTS:
     def size(self):
         self.db_connect()
         
-        entries=self.cur.execute("select * from event")
-        return entries
+        self.cur.execute("select * from event")
+        entries = self.cur.fetchall()
+        return len(entries)
     
     def check_date(self,date):
         self.db_connect()

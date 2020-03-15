@@ -1,4 +1,4 @@
-import MySQLdb
+import mysql.connector as MySQLdb
 class USER:
     def __init__(self):
         self.host = '127.0.0.1'                
@@ -14,10 +14,11 @@ class USER:
     def search(self,id):
         self.db_connect()
         
-        entries = self.cur.execute("SELECT * from users where uid = '{0}'".format(id))
+        self.cur.execute("SELECT * from users where uid = '{0}'".format(id))
+        entries = self.cur.fetchall()
         print("hello")     
         print(entries) 
-        if entries == 1:
+        if len(entries) == 1:
             return True
         else:
             return False

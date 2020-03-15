@@ -1,4 +1,4 @@
-import MySQLdb
+import mysql.connector as MySQLdb
 
 class EVENT_USER:
     def __init__(self):
