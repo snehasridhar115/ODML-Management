@@ -5,10 +5,7 @@ matrix:
       cache: pip
       install: pip install -r requirments.txt
       before_script:
-        #- cd ODML-Management-Back-end
         - export FLASK_APP="$TRAVIS_BUILD_DIR/ODML-Management-Back-end/main.py"
-      # script:
-      #   - python -m unittest discover
 
     - language: node_js
       node_js:
