@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://snehasridhar115.github.io/ODML-Management/ODML-Management-Front-end/",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "jest-enzyme": "^7.1.2",
     "react": "^16.9.0",
     "react-datepicker": "^2.8.0",
